@@ -1,0 +1,37 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-version:
+      python: 3.8
+    commands:
+      - echo "installing venv"
+      - pip install Django==2.2.4
+      - pip install django-allauth==0.40.0
+      - pip install django-crispy-forms==1.7.2
+      - pip install django-countries==5.5
+      - pip install stripe==2.37.1
+      - pip install Pillow
+      - pip install awscli
+
+  pre_build:
+    commands:
+      - echo "install dependencies"
+      - python manage.py collectstatic --noinput
+      - python manage.py migrate
+  build:
+    commands:
+      - echo "building"
+      - python manage.py test
+  post_build:
+    command:
+      - echo "post build phase"
+      - echo Zipping the application...
+      - zip -r django-app.zip .
+      - echo Build completed on `date`
+
+artifacts:
+  files:
+    - django-app.zip
+    - appspec.yml
+  discard-paths: yes

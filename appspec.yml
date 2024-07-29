@@ -1,0 +1,18 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/django-app
+hooks:
+  BeforeInstall:
+    - location: shell_service/install_dependencies.sh
+      timeout: 300
+      runas: ubuntu
+  AfterInstall:
+    - location: shell_service/migrate_database.sh
+      timeout: 300
+      runas: ubuntu
+  ApplicationStart:
+    - location: shell_service/start_server.sh
+      timeout: 300
+      runas: ubuntu
