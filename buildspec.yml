@@ -24,7 +24,7 @@ phases:
       - echo "building"
       - python manage.py test
   post_build:
-    command:
+    commands:
       - echo "post build phase"
       - echo Zipping the application...
       - zip -r django-app.zip .
