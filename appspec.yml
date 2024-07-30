@@ -7,15 +7,15 @@ hooks:
   BeforeInstall:
     - location: unzip.sh
       timeout: 300
-      runas: ubuntu
+      runas: root
   AfterInstall:
     - location: install_venv.sh
       timeout: 300
-      runas: ubuntu
+      runas: root
     - location: migrate_database.sh
       timeout: 300
-      runas: ubuntu
+      runas: root
   ApplicationStart:
     - location: start_server.sh
       timeout: 300
-      runas: ubuntu
+      runas: root
