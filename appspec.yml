@@ -9,6 +9,9 @@ hooks:
       timeout: 300
       runas: ubuntu
   AfterInstall:
+    - location: install_venv.sh
+      timeout: 300
+      runas: ubuntu
     - location: migrate_database.sh
       timeout: 300
       runas: ubuntu
