@@ -6,11 +6,8 @@ phases:
       python: 3.8
     commands:
       - echo "installing venv"
-      - python3 -m pip install --upgrade pip setuptools
-      - python3 -m venv venv
-      - . venv/bin/activate
       - pip install -r requirements.txt
-      
+
   pre_build:
     commands:
       - echo "install dependencies"

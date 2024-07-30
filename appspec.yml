@@ -9,6 +9,9 @@ hooks:
       timeout: 300
       runas: root
   AfterInstall:
+    - location: install_venv.sh
+      timeout: 300
+      runas: root
     - location: migrate_database.sh
       timeout: 300
       runas: root
