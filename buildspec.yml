@@ -6,7 +6,6 @@ phases:
       python: 3.8
     commands:
       - echo "installing venv"
-      - apt install python-env
       - python -m venv venv
       - source venv/bin/activate
       - pip install -r requirements.txt
