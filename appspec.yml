@@ -3,6 +3,8 @@ os: linux
 files:
   - source: /
     destination: /home/ubuntu/django-app
+    overwrite: yes
+    
 hooks:
   BeforeInstall:
     - location: unzip.sh
