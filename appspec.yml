@@ -6,18 +6,18 @@ files:
     overwrite: yes
 
 hooks:
-  BeforeInstall:
-    - location: unzip.sh
-      timeout: 300
-      runas: root
-  AfterInstall:
-    - location: install_venv.sh
+  Install:
+    - location: scripts/install_package.sh
       timeout: 300
       runas: ubuntu
-    - location: migrate_database.sh
+  AfterInstall:
+    - location: scripts/install_dependencies.sh
+      timeout: 300
+      runas: ubuntu
+    - location: scripts/migrate_database.sh
       timeout: 300
       runas: ubuntu
   ApplicationStart:
-    - location: start_server.sh
+    - location: scripts/start_server.sh
       timeout: 300
       runas: ubuntu
