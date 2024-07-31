@@ -29,7 +29,7 @@ artifacts:
     # - django-app.zip
     # - appspec.yml
     # - scripts/**
-    - /*
+    - '**/*'
   discard-paths: yes
 
 cache:
