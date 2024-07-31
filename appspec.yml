@@ -4,12 +4,12 @@ files:
   - source: /
     destination: /home/ubuntu/django-app
     overwrite: yes
-    
+
 hooks:
   BeforeInstall:
     - location: unzip.sh
       timeout: 300
-      runas: ubuntu
+      runas: root
   AfterInstall:
     - location: install_venv.sh
       timeout: 300
